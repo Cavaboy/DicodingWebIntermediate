@@ -16,11 +16,15 @@ self.addEventListener('push', function (event) {
 // --- Basic App Shell Offline Caching ---
 const CACHE_NAME = 'app-shell-v1';
 const APP_SHELL = [
-    '/',
-    '/index.html',
-    '/assets/index-CPrCPSLS.css', // update with your actual CSS asset name
-    '/assets/index.js', // update with your actual JS asset name
-    '/favicon.png',
+    '/DicodingWebIntermediate/',
+    '/DicodingWebIntermediate/index.html',
+    '/DicodingWebIntermediate/manifest.json',
+    '/DicodingWebIntermediate/assets/index-CPrCPSLS.css', // update with your actual CSS asset name
+    '/DicodingWebIntermediate/assets/index.js', // update with your actual JS asset name
+    '/DicodingWebIntermediate/images/icon-192x192.png',
+    '/DicodingWebIntermediate/screenshots/desktop-placeholder.png',
+    '/DicodingWebIntermediate/screenshots/mobile-placeholder.png',
+    '/DicodingWebIntermediate/favicon.png',
     // add more assets as needed
 ];
 
