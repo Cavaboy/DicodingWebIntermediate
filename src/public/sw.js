@@ -19,8 +19,8 @@ const APP_SHELL = [
     '/DicodingWebIntermediate/',
     '/DicodingWebIntermediate/index.html',
     '/DicodingWebIntermediate/manifest.json',
-    '/DicodingWebIntermediate/assets/index-CPrCPSLS.css', // update with your actual CSS asset name
-    '/DicodingWebIntermediate/assets/index.js', // update with your actual JS asset name
+    '/DicodingWebIntermediate/assets/index-COFV18os.css',
+    '/DicodingWebIntermediate/assets/index-BroGuHBy.js',
     '/DicodingWebIntermediate/images/logo.png',
     '/DicodingWebIntermediate/favicon.png',
     // add more assets as needed
