@@ -21,9 +21,7 @@ const APP_SHELL = [
     '/DicodingWebIntermediate/manifest.json',
     '/DicodingWebIntermediate/assets/index-CPrCPSLS.css', // update with your actual CSS asset name
     '/DicodingWebIntermediate/assets/index.js', // update with your actual JS asset name
-    '/DicodingWebIntermediate/images/icon-192x192.png',
-    '/DicodingWebIntermediate/screenshots/desktop-placeholder.png',
-    '/DicodingWebIntermediate/screenshots/mobile-placeholder.png',
+    '/DicodingWebIntermediate/images/logo.png',
     '/DicodingWebIntermediate/favicon.png',
     // add more assets as needed
 ];
@@ -54,7 +52,6 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request).then((response) => {
             return response || fetch(event.request).catch(() => {
-                // Offline fallback: show a simple offline message for HTML requests
                 if (event.request.headers.get('accept').includes('text/html')) {
                     return new Response('<h2 style="text-align:center;margin-top:2em;">You are offline.<br>Halaman tidak tersedia.</h2>', {
                         headers: { 'Content-Type': 'text/html' },
