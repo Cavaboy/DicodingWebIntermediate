@@ -1,5 +1,6 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { fixLeafletIcon } from '../../utils/leaflet-fix.js';
 import HomePresenter from './home-presenter.offline.js';
 
 const HomePage = {
@@ -23,6 +24,7 @@ const HomePage = {
   },
 
   async afterRender() {
+    fixLeafletIcon();
     if (!this._presenter) this._presenter = new HomePresenter(this);
     const container = document.getElementById('stories-container');
     container.innerHTML = '<p>Loading stories...</p>';
