@@ -30,4 +30,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     await app.renderPage();
     updateNav();
   });
+
+  // Service Worker registration for PWA (GitHub Pages path)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/DicodingWebIntermediate/sw.js')
+        .then(reg => {
+          console.log('Service worker registered:', reg);
+        })
+        .catch(err => {
+          console.error('Service worker registration failed:', err);
+        });
+    });
+  }
 });
