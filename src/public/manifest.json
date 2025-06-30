@@ -2,17 +2,9 @@
     "name": "My Application",
     "icons": [
         {
-            "src": "images/icon-192x192.png",
-            "sizes": "192x192",
+            "src": "images/logo.png",
+            "sizes": "512x512",
             "type": "image/png"
-        }
-    ],
-    "screenshots": [
-        {
-            "src": "screenshots/desktop-placeholder.png",
-            "sizes": "1280x720",
-            "type": "image/png",
-            "form_factor": "wide"
         }
     ]
 }
