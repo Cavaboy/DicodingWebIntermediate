@@ -1,0 +1,44 @@
+{
+    "name": "App",
+    "short_name": "App",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0077cc",
+    "icons": [
+        {
+            "src": "images/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Add New Data",
+            "short_name": "Add Data",
+            "description": "Quickly add new data",
+            "url": "/add.html",
+            "icons": [
+                {
+                    "src": "/icons/add-shortcut.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/screenshots/desktop-placeholder.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/screenshots/mobile-placeholder.png",
+            "sizes": "375x667",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ]
+}
