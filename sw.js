@@ -21,7 +21,8 @@ const APP_SHELL = [
     '/DicodingWebIntermediate/manifest.json',
     '/DicodingWebIntermediate/assets/index-COFV18os.css',
     '/DicodingWebIntermediate/assets/index-BroGuHBy.js',
-    '/DicodingWebIntermediate/images/logo.png',
+    '/DicodingWebIntermediate/images/icon-144x144.png',
+    '/DicodingWebIntermediate/images/screenshot-desktop.png',
     '/DicodingWebIntermediate/favicon.png',
     // add more assets as needed
 ];
