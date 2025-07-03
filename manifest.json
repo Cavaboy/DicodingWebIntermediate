@@ -8,14 +8,14 @@
     "description": "A simple PWA for Dicoding Story.",
     "icons": [
         {
-            "src": "/images/icon-144x144.png",
+            "src": "/DicodingWebIntermediate/images/icon-144x144.png",
             "sizes": "144x144",
             "type": "image/png"
         }
     ],
     "screenshots": [
         {
-            "src": "images/screenshot-desktop.png",
+            "src": "/DicodingWebIntermediate/images/screenshot-desktop.png",
             "sizes": "864x782",
             "type": "image/png",
             "form_factor": "wide"

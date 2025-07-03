@@ -16,11 +16,11 @@ self.addEventListener('push', function (event) {
 // --- Basic App Shell Offline Caching ---
 const CACHE_NAME = 'app-shell-v2';
 const APP_SHELL = [
-    '/index.html',
-    '/manifest.json',
-    '/favicon.png',
-    '/images/icon-144x144.png',
-    '/images/screenshot-desktop.png',
+    '/DicodingWebIntermediate/index.html',
+    '/DicodingWebIntermediate/manifest.json',
+    '/DicodingWebIntermediate/favicon.png',
+    '/DicodingWebIntermediate/images/icon-144x144.png',
+    '/DicodingWebIntermediate/images/screenshot-desktop.png',
     // tambahkan asset lain jika perlu
 ];
 
