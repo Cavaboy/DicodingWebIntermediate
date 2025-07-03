@@ -1,14 +1,14 @@
 {
     "name": "Dicoding Story App",
     "short_name": "StoryApp",
-    "start_url": "./index.html",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#2196f3",
     "description": "A simple PWA for Dicoding Story.",
     "icons": [
         {
-            "src": "images/icon-144x144.png",
+            "src": "/images/icon-144x144.png",
             "sizes": "144x144",
             "type": "image/png"
         }

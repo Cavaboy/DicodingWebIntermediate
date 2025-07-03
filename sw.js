@@ -17,10 +17,10 @@ self.addEventListener('push', function (event) {
 const CACHE_NAME = 'app-shell-v2';
 const APP_SHELL = [
     '/index.html',
-    '/public/manifest.json',
+    '/manifest.json',
     '/favicon.png',
-    '/public/images/icon-144x144.png',
-    '/public/images/screenshot-desktop.png',
+    '/images/icon-144x144.png',
+    '/images/screenshot-desktop.png',
     // tambahkan asset lain jika perlu
 ];
 
