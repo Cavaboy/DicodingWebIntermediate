@@ -14,17 +14,14 @@ self.addEventListener('push', function (event) {
 });
 
 // --- Basic App Shell Offline Caching ---
-const CACHE_NAME = 'app-shell-v1';
+const CACHE_NAME = 'app-shell-v2';
 const APP_SHELL = [
-    '/DicodingWebIntermediate/',
-    '/DicodingWebIntermediate/index.html',
-    '/DicodingWebIntermediate/manifest.json',
-    '/DicodingWebIntermediate/assets/index-COFV18os.css',
-    '/DicodingWebIntermediate/assets/index-BroGuHBy.js',
-    '/DicodingWebIntermediate/images/icon-144x144.png',
-    '/DicodingWebIntermediate/images/screenshot-desktop.png',
-    '/DicodingWebIntermediate/favicon.png',
-    // add more assets as needed
+    '/index.html',
+    '/public/manifest.json',
+    '/favicon.png',
+    '/public/images/icon-144x144.png',
+    '/public/images/screenshot-desktop.png',
+    // tambahkan asset lain jika perlu
 ];
 
 self.addEventListener('install', (event) => {
