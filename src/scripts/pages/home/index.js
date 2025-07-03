@@ -44,8 +44,25 @@ const HomePage = {
         <h4>${story.name}</h4>
         <p>${story.description}</p>
         <p><small>${new Date(story.createdAt).toLocaleString()}</small></p>
+        <button class="save-story-btn" data-id="${story.id}">Simpan</button>
       `;
       container.appendChild(storyElem);
+    });
+    // Tambahkan event listener untuk tombol simpan
+    container.querySelectorAll('.save-story-btn').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        const id = btn.getAttribute('data-id');
+        const story = stories.find(s => s.id == id);
+        if (story) {
+          try {
+            const dbHelper = await import('../../utils/indexeddb-helper.js');
+            await dbHelper.putStory(story);
+            this.showToast('Cerita disimpan untuk offline!');
+          } catch (err) {
+            this.showToast('Gagal menyimpan cerita: ' + err.message);
+          }
+        }
+      });
     });
     this._initializeMap(stories);
   },

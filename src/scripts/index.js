@@ -11,6 +11,7 @@ function updateNav() {
   navList.innerHTML = '';
   if (localStorage.getItem('dicoding_token')) {
     navList.innerHTML += '<li><a href="#/">Beranda</a></li>';
+    navList.innerHTML += '<li><a href="#/saved">Saved Stories</a></li>';
     navList.innerHTML += '<li><a href="#/about">About</a></li>';
     // Tambahkan link lain jika perlu
   } else {

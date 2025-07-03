@@ -10,15 +10,6 @@ class HomePresenter {
         try {
             // Try to fetch stories from API
             const stories = await StoryAPI.getAllStories();
-            // Clear old stories in IndexedDB
-            const oldStories = await dbHelper.getAllStories();
-            for (const old of oldStories) {
-                await dbHelper.deleteStory(old.id);
-            }
-            // Save new stories to IndexedDB
-            for (const story of stories) {
-                await dbHelper.putStory(story);
-            }
             // Render stories to UI
             if (!stories || stories.length === 0) {
                 this._view.showError('Tidak ada cerita.');
