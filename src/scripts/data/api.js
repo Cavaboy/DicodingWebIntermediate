@@ -5,6 +5,22 @@ class StoryAPI {
     return localStorage.getItem('dicoding_token');
   }
 
+  static async subscribePushNotification(subscription) {
+    const token = this.getToken();
+    const response = await fetch('https://story-api.dicoding.dev/v1/notifications/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(subscription),
+    });
+    if (!response.ok) {
+      throw new Error('Failed to subscribe push notification.');
+    }
+    return response.json();
+  }
+
   static async getAllStories({ page = 1, size = 10, location = 1 } = {}) {
     const token = this.getToken();
     const url = `${API_CONFIG.GET_ALL_STORIES}?page=${page}&size=${size}&location=${location}`;
