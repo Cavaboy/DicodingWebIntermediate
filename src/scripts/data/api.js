@@ -7,13 +7,14 @@ class StoryAPI {
 
   static async subscribePushNotification(subscription) {
     const token = this.getToken();
+    const { expirationTime, ...subscriptionWithoutExpiration } = subscription;
     const response = await fetch('https://story-api.dicoding.dev/v1/notifications/subscribe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(subscription),
+      body: JSON.stringify(subscriptionWithoutExpiration),
     });
     if (!response.ok) {
       throw new Error('Failed to subscribe push notification.');
