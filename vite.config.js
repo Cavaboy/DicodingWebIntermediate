@@ -21,12 +21,12 @@ export default defineConfig({
         // Arahkan ke ikon yang ada di folder `public` Anda
         icons: [
           {
-            src: 'images/icon-192x192.png', // path relatif dari folder public
-            sizes: '192x192',
+            src: 'images/icon-144x144.png', // path relatif dari folder public
+            sizes: '144x144',
             type: 'image/png',
           },
           {
-            src: 'images/icon-512x512.png',
+            src: 'images/logo.png',
             sizes: '512x512',
             type: 'image/png',
           },
