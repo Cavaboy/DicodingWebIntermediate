@@ -5,6 +5,11 @@ const ASSETS_TO_CACHE = [
     '/manifest.webmanifest',
     '/src/styles/main.css',
     '/src/scripts/main.js',
+    '/src/scripts/data/api.js',
+    '/icons/icon-192x192.png',
+    '/icons/icon-512x512.png',
+    // '/fonts/your-font.woff2',
+    // '/images/logo.png',
 ];
 
 // Install: cache asset statis
