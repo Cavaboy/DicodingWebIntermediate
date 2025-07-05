@@ -1,19 +1,20 @@
 const CACHE_NAME = 'story-app-cache-v2';
+const BASE_PATH = '/DicodingWebIntermediate';
 const ASSETS_TO_CACHE = [
-    '/',
-    '/src/index.html',
-    '/src/manifest.json',
-    '/src/styles/styles.css',
-    '/src/scripts/main.js',
-    '/src/scripts/data/api.js',
-    '/src/scripts/app.js',
-    '/src/scripts/config.js',
-    '/src/scripts/index.js',
-    '/src/public/favicon.png',
-    '/src/public/sw.js',
-    '/src/public/images/icon-144x144.png',
-    '/src/public/images/logo.png',
-    '/src/public/images/screenshot-desktop.png',
+    BASE_PATH + '/',
+    BASE_PATH + '/index.html',
+    BASE_PATH + '/manifest.json',
+    BASE_PATH + '/src/styles/styles.css',
+    BASE_PATH + '/src/scripts/main.js',
+    BASE_PATH + '/src/scripts/data/api.js',
+    BASE_PATH + '/src/scripts/app.js',
+    BASE_PATH + '/src/scripts/config.js',
+    BASE_PATH + '/src/scripts/index.js',
+    BASE_PATH + '/src/public/favicon.png',
+    BASE_PATH + '/src/public/sw.js',
+    BASE_PATH + '/src/public/images/icon-144x144.png',
+    BASE_PATH + '/src/public/images/logo.png',
+    BASE_PATH + '/src/public/images/screenshot-desktop.png',
 ];
 
 // Install: cache asset statis
