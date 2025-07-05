@@ -37,26 +37,29 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
     const url = new URL(event.request.url);
 
-    // Cache first untuk asset statis
-    if (ASSETS_TO_CACHE.includes(url.pathname) || url.origin === location.origin) {
-        event.respondWith(
-            caches.match(event.request).then((cached) => cached || fetch(event.request))
-        );
-        return;
-    }
-
-    // Network first untuk API
-    if (url.pathname.startsWith('/v1/stories')) {
+    // 1. Prioritaskan Network First untuk API
+    if (url.pathname.includes('/v1/')) {
         event.respondWith(
             fetch(event.request)
                 .then((response) => {
+                    // Jika berhasil, simpan clone-nya ke cache
                     return caches.open(CACHE_NAME).then((cache) => {
                         cache.put(event.request, response.clone());
                         return response;
                     });
                 })
-                .catch(() => caches.match(event.request))
+                .catch(() => {
+                    // Jika jaringan gagal, coba ambil dari cache
+                    return caches.match(event.request);
+                })
         );
         return;
     }
+
+    event.respondWith(
+        caches.match(event.request).then((cachedResponse) => {
+            // Jika ada di cache, gunakan cache. Jika tidak, ambil dari jaringan.
+            return cachedResponse || fetch(event.request);
+        })
+    );
 });
