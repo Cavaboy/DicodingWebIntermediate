@@ -1,22 +1,20 @@
-const CACHE_NAME = 'story-app-cache-v1';
+const CACHE_NAME = 'story-app-cache-v2';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
     '/manifest.webmanifest',
-    // Add other assets as needed
     '/src/styles/main.css',
     '/src/scripts/main.js',
-    // ...add more static assets if needed
 ];
 
-// Install event: cache essential assets
+// Install: cache asset statis
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE))
     );
 });
 
-// Activate event: clean up old caches
+// Activate: hapus cache lama
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) =>
@@ -29,23 +27,30 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Fetch event: serve from cache, fallback to network
+// Fetch: cache first untuk asset, network first untuk API
 self.addEventListener('fetch', (event) => {
-    if (event.request.method !== 'GET') return;
-    event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            if (cachedResponse) return cachedResponse;
-            return fetch(event.request)
+    const url = new URL(event.request.url);
+
+    // Cache first untuk asset statis
+    if (ASSETS_TO_CACHE.includes(url.pathname) || url.origin === location.origin) {
+        event.respondWith(
+            caches.match(event.request).then((cached) => cached || fetch(event.request))
+        );
+        return;
+    }
+
+    // Network first untuk API
+    if (url.pathname.startsWith('/v1/stories')) {
+        event.respondWith(
+            fetch(event.request)
                 .then((response) => {
-                    // Optionally cache new requests
                     return caches.open(CACHE_NAME).then((cache) => {
                         cache.put(event.request, response.clone());
                         return response;
                     });
                 })
-                .catch(() => {
-                    // Optionally return a fallback page/image for failed requests
-                });
-        })
-    );
+                .catch(() => caches.match(event.request))
+        );
+        return;
+    }
 });
