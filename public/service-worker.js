@@ -1,15 +1,19 @@
 const CACHE_NAME = 'story-app-cache-v2';
 const ASSETS_TO_CACHE = [
     '/',
-    '/index.html',
-    '/manifest.webmanifest',
-    '/src/styles/main.css',
+    '/src/index.html',
+    '/src/manifest.json',
+    '/src/styles/styles.css',
     '/src/scripts/main.js',
     '/src/scripts/data/api.js',
-    '/icons/icon-192x192.png',
-    '/icons/icon-512x512.png',
-    // '/fonts/your-font.woff2',
-    // '/images/logo.png',
+    '/src/scripts/app.js',
+    '/src/scripts/config.js',
+    '/src/scripts/index.js',
+    '/src/public/favicon.png',
+    '/src/public/sw.js',
+    '/src/public/images/icon-144x144.png',
+    '/src/public/images/logo.png',
+    '/src/public/images/screenshot-desktop.png',
 ];
 
 // Install: cache asset statis
