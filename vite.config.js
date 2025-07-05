@@ -3,9 +3,10 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/DicodingWebIntermediate/',
   plugins: [
     // ...plugin lain yang mungkin sudah ada, seperti vue() atau react()
-    
+
     VitePWA({
       // Opsi 1: Mengontrol bagaimana service worker diperbarui.
       // 'autoUpdate' akan otomatis memperbarui service worker di latar belakang.
@@ -37,7 +38,7 @@ export default defineConfig({
         // Ini akan secara otomatis mencari SEMUA aset Anda (JS, CSS, gambar, dll.)
         // dan menyimpannya di cache saat instalasi. Tidak perlu daftar manual lagi!
         globPatterns: ['**/*.{js,css,html,png,jpg,svg}'],
-        
+
         // Ini adalah pengganti logic 'fetch' manual Anda.
         runtimeCaching: [
           {
@@ -48,7 +49,7 @@ export default defineConfig({
             options: {
               cacheName: 'api-cache',
               cacheableResponse: {
-                statuses: [0, 200], 
+                statuses: [0, 200],
               },
             },
           },
@@ -60,7 +61,7 @@ export default defineConfig({
               cacheName: 'google-fonts-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365, 
+                maxAgeSeconds: 60 * 60 * 24 * 365,
               },
             },
           },
