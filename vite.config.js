@@ -53,6 +53,12 @@ export default defineConfig({
         ],
         globPatterns: ['**/*.{js,css,html,png}'],
       },
+      // Integrate custom service worker for push notifications
+      strategies: 'injectManifest',
+      injectManifest: {
+        swSrc: resolve(__dirname, 'sw.js'),
+        swDest: 'sw.js',
+      },
     }),
   ],
 });

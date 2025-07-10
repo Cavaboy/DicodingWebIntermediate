@@ -29,6 +29,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   await app.renderPage();
   updateNav();
 
+  // Skip to content accessibility fix
+  const mainContent = document.querySelector('#main-content');
+  const skipLink = document.querySelector('.skip-link');
+  if (mainContent && skipLink) {
+    skipLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      skipLink.blur();
+      mainContent.focus();
+      mainContent.scrollIntoView();
+    });
+  }
+
   window.addEventListener('hashchange', async () => {
     await app.renderPage();
     updateNav();
