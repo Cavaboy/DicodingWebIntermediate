@@ -1,5 +1,6 @@
-// Service Worker: Push Notification Handler
-[{"revision":null,"url":"assets/index-COFV18os.css"},{"revision":null,"url":"assets/index-DUauxctK.js"},{"revision":"951f61f2416068b08b77ecaa0f9a5807","url":"index.html"},{"revision":"ef2bd59a8219ecd1543e070b531f0f58","url":"registerSW.js"},{"revision":"bfb3275ec519b339497477087bde49b5","url":"sw.js"},{"revision":"483eed3b9a1d2c279fe9e84bc9d75fe5","url":"manifest.webmanifest"}];
+import { precacheAndRoute } from 'workbox-precaching';
+
+precacheAndRoute(self.__WB_MANIFEST);
 
 self.addEventListener('push', function (event) {
     let body = 'No payload';
