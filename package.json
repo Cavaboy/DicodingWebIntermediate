@@ -4,15 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "vite --base=/DicodingWebIntermediate/",
+    "build": "vite build --base=/DicodingWebIntermediate/",
+    "preview": "vite preview --base=/DicodingWebIntermediate/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
     "vite": "^6.2.0",
+    "vite-plugin-mkcert": "^1.17.8",
     "vite-plugin-pwa": "^1.0.1"
   },
   "dependencies": {

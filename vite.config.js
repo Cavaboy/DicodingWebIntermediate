@@ -1,23 +1,27 @@
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
-import { resolve } from 'path';
+import mkcert from 'vite-plugin-mkcert';
+import { resolve } from 'path'; // You might not need this anymore
 
-// https://vitejs.dev/config/
 export default defineConfig({
+  // Keep the base path
   base: '/DicodingWebIntermediate/',
-  root: resolve(__dirname, 'src'),
-  publicDir: resolve(__dirname, 'src', 'public'),
+
+  // The build path is fine
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: true,
   },
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-    },
+
+  server: {
+    https: true,
   },
+
   plugins: [
     VitePWA({
+      // Your PWA settings are fine
+      // This plugin generates the manifest for you,
+      // so you don't need a manifest.webmanifest file in your public folder.
       registerType: 'autoUpdate',
       manifest: {
         name: 'Story App',
@@ -25,40 +29,19 @@ export default defineConfig({
         theme_color: '#ffffff',
         icons: [
           {
-            src: '/images/icon-192x192.png',
+            src: 'images/icon-192x192.png', // Use relative paths here
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/images/icon-512x512.png',
+            src: 'images/icon-512x512.png', // And here
             sizes: '512x512',
             type: 'image/png',
           },
         ],
       },
-      workbox: {
-        runtimeCaching: [
-          {
-            urlPattern: /\/v1\//,
-            handler: 'NetworkFirst',
-            options: {
-              cacheName: 'api-cache',
-              expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24,
-              },
-              networkTimeoutSeconds: 10,
-            },
-          },
-        ],
-        globPatterns: ['**/*.{js,css,html,png}'],
-      },
-      // Integrate custom service worker for push notifications
-      strategies: 'injectManifest',
-      injectManifest: {
-        swSrc: resolve(__dirname, 'sw.js'),
-        swDest: 'sw.js',
-      },
+      // ... your workbox settings
     }),
+    mkcert(),
   ],
 });
