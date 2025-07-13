@@ -1,21 +1,26 @@
 {
-    "name": "Dicoding Story App",
+    "name": "Story App",
     "short_name": "StoryApp",
-    "start_url": "/",
+    "start_url": "/DicodingWebIntermediate/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#2196f3",
+    "theme_color": "#ffffff",
     "description": "A simple PWA for Dicoding Story.",
     "icons": [
         {
-            "src": "/DicodingWebIntermediate/images/icon-144x144.png",
-            "sizes": "144x144",
+            "src": "/images/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icon-512x512.png",
+            "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "screenshots": [
         {
-            "src": "/DicodingWebIntermediate/images/screenshot-desktop.png",
+            "src": "/images/screenshot-desktop.png",
             "sizes": "864x782",
             "type": "image/png",
             "form_factor": "wide"
