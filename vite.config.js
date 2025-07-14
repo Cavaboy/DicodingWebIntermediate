@@ -19,9 +19,6 @@ export default defineConfig({
 
   plugins: [
     VitePWA({
-      // Your PWA settings are fine
-      // This plugin generates the manifest for you,
-      // so you don't need a manifest.webmanifest file in your public folder.
       registerType: 'autoUpdate',
       manifest: {
         name: 'Story App',
@@ -29,18 +26,60 @@ export default defineConfig({
         theme_color: '#ffffff',
         icons: [
           {
-            src: 'images/icon-192x192.png', // Use relative paths here
+            src: 'images/icon-144x144.png',
+            sizes: '144x144',
+            type: 'image/png',
+          },
+          {
+            src: 'images/icon-192x192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: 'images/icon-512x512.png', // And here
+            src: 'images/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
           },
         ],
+        screenshots: [
+          {
+            src: 'images/screenshot-desktop.png',
+            sizes: '1920x1080',
+            type: 'image/png',
+            form_factor: 'wide'
+          },
+          {
+            src: 'images/screenshot-mobile.png',
+            sizes: '738x1600',
+            type: 'image/png',
+            form_factor: 'narrow'
+          }
+        ]
       },
-      // ... your workbox settings
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,png,jpg,svg}'],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/story-api\.dicoding\.dev\/v1\//,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'api-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 24 * 60 * 60,
+              },
+              networkTimeoutSeconds: 10,
+            },
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\//,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+            },
+          }
+        ]
+      },
     }),
     mkcert(),
   ],
